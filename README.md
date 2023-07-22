@@ -10,11 +10,12 @@ a simple project to learn webassembly with go
    1. If you get the error of `GOOS is not recognized command` try switching to other terminal like git bash.
 4. Copy go js connection script with: `cp "$(go env GOROOT)/misc/wasm/wasm-exec.js"`
 5. Make sure to import the connection script before your personal scripts in the Html
-6. Connect to the WebAssembly file from javascript like this: 
-   ```
-    const go = new Go();
+6. Connect to the WebAssembly file from javascript like this:
 
-    WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
-      go.run(result.instance);
-    });
-   ```
+``` javascript
+const go = new Go();
+
+WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+  go.run(result.instance);
+});
+```
